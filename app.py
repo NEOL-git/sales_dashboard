@@ -68,6 +68,79 @@ st.markdown(f"""
     .sidebar .sidebar-content {{
         background-color: {COLORS['light_gray']};
     }}
+    
+    /* 모바일 최적화 CSS */
+    @media (max-width: 768px) {{
+        /* 메인 타이틀 크기 조정 */
+        h1 {{
+            font-size: 24px !important;
+        }}
+        
+        h2 {{
+            font-size: 18px !important;
+        }}
+        
+        h3 {{
+            font-size: 16px !important;
+        }}
+        
+        /* 메트릭 카드 간격 조정 */
+        .stMetric {{
+            padding: 10px !important;
+            margin-bottom: 10px;
+        }}
+        
+        .stMetric label {{
+            font-size: 12px !important;
+        }}
+        
+        .stMetric [data-testid="stMetricValue"] {{
+            font-size: 18px !important;
+        }}
+        
+        /* 버튼 크기 증가 (터치 타겟) */
+        .stButton button {{
+            min-height: 44px !important;
+            font-size: 14px !important;
+        }}
+        
+        /* 차트 컨테이너 */
+        .js-plotly-plot {{
+            width: 100% !important;
+        }}
+        
+        /* 테이블 폰트 크기 */
+        .dataframe {{
+            font-size: 12px !important;
+        }}
+        
+        /* 사이드바 */
+        [data-testid="stSidebar"] {{
+            width: 280px !important;
+        }}
+        
+        /* 컨테이너 패딩 */
+        .main .block-container {{
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            padding-top: 1rem !important;
+        }}
+    }}
+    
+    /* 작은 모바일 (360px 이하) */
+    @media (max-width: 360px) {{
+        h1 {{
+            font-size: 20px !important;
+        }}
+        
+        .stMetric [data-testid="stMetricValue"] {{
+            font-size: 16px !important;
+        }}
+        
+        .dataframe {{
+            font-size: 11px !important;
+        }}
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -414,6 +487,9 @@ def main():
     
     # 사이드바 - 파일 업로드
     st.sidebar.header("📁 데이터 소스")
+    
+    # 모바일 사용 안내
+    st.sidebar.info("📱 **모바일 팁**: 좌측 상단 '>' 버튼으로 메뉴를 열고 닫을 수 있습니다.")
     
     # 파일 업로더
     uploaded_file = st.sidebar.file_uploader(

@@ -66,13 +66,14 @@ PLOTLY_LAYOUT = {
         'size': FONTS['body']['size'],
         'color': FONTS['body']['color']
     },
-    'margin': {'l': 60, 'r': 40, 't': 60, 'b': 60},
+    'margin': {'l': 50, 'r': 30, 't': 50, 'b': 50},  # 모바일 최적화: 여백 축소
     'hovermode': 'closest',
     'hoverlabel': {
         'bgcolor': COLORS['white'],
         'font_size': FONTS['label']['size'],
         'font_family': FONTS['label']['family']
-    }
+    },
+    'autosize': True,  # 모바일 최적화: 자동 크기 조정
 }
 
 # 보고서 제목 및 메타데이터
